@@ -1,74 +1,84 @@
 # 🚧 Manhole Monitoring System
 
-An IoT-based manhole monitoring system using ESP8266, gas sensing, water detection, BMP180 pressure sensing, and Blynk IoT for remote monitoring.
+An IoT-based smart manhole monitoring system designed to monitor hazardous conditions inside manholes using **ESP8266**, sensors, and **Blynk IoT**.
+
+---
 
 ## 📌 Project Overview
 
-The system is designed to monitor hazardous conditions inside a manhole and provide real-time sensor information through the Blynk IoT platform.
+The Manhole Monitoring System continuously monitors environmental conditions inside a manhole and sends sensor readings to a remote **Blynk dashboard** through Wi-Fi.
 
-The ESP8266 collects sensor data and sends it to the Blynk dashboard over Wi-Fi.
+The system is designed to help identify potentially dangerous conditions such as:
 
-## 🔧 Hardware Used
+- Gas accumulation
+- Water presence
+- Changes in atmospheric pressure
 
-- ESP8266 NodeMCU
-- Gas Sensor
-- Water Detection Sensor
-- BMP180 Pressure Sensor
-- Breadboard
-- Jumper Wires
-- USB Cable / Power Supply
+The ESP8266 acts as the main controller and communicates with the sensors while transmitting the collected data to Blynk.
+
+---
+
+## 🎯 Objectives
+
+- Monitor gas levels inside a manhole.
+- Detect the presence of water.
+- Measure atmospheric pressure.
+- Send sensor readings remotely using Wi-Fi.
+- Display real-time sensor information on a Blynk dashboard.
+- Provide a foundation for future automated warning and safety systems.
+
+---
+
+## 🔧 Hardware Components
+
+| Component | Purpose |
+|---|---|
+| ESP8266 NodeMCU | Main microcontroller and Wi-Fi communication |
+| Gas Sensor | Detects gas concentration |
+| Water Sensor | Detects water presence |
+| BMP180 Pressure Sensor | Measures atmospheric pressure |
+| Breadboard | Circuit prototyping |
+| Jumper Wires | Electrical connections |
+| USB Cable / Power Supply | Provides power to the system |
+
+---
 
 ## 💻 Software & Technologies
 
-- Arduino IDE
-- Embedded C/C++
-- ESP8266
-- Blynk IoT
-- I2C Communication
+- **Arduino IDE**
+- **Embedded C/C++**
+- **ESP8266**
+- **Blynk IoT**
+- **I2C Communication**
+- **Wi-Fi**
 
-## 📊 Sensors and Connections
+---
 
-| Component | ESP8266 Pin | Purpose |
+## 🔌 Pin Connections
+
+| Component | ESP8266 Pin | Function |
 |---|---|---|
-| Gas Sensor | A0 | Gas level monitoring |
-| Water Sensor | D5 | Water detection |
-| BMP180 SCL | D1 | I2C clock |
-| BMP180 SDA | D2 | I2C data |
+| Gas Sensor | A0 | Analog gas reading |
+| Water Sensor | D5 | Digital water detection |
+| BMP180 SCL | D1 | I2C Clock |
+| BMP180 SDA | D2 | I2C Data |
+| Sensors VCC | 3.3V | Power |
+| Sensors GND | GND | Ground |
 
-## 📱 Blynk Dashboard
+> **Note:** Sensor modules should be powered according to their individual voltage specifications.
 
-| Virtual Pin | Data |
-|---|---|
-| V0 | Gas Sensor Value |
-| V2 | Pressure |
-| V4 | Water Detection |
+---
 
-## ⚙️ Working
+## 📊 Blynk Virtual Pins
 
-1. ESP8266 connects to Wi-Fi.
-2. Gas sensor measures the gas level.
-3. Water sensor detects the presence of water.
-4. BMP180 measures atmospheric pressure.
-5. Sensor data is sent to Blynk.
-6. Data is updated every 2 seconds.
-7. The user can monitor the system remotely.
+| Virtual Pin | Sensor | Data |
+|---|---|---|
+| V0 | Gas Sensor | Gas sensor reading |
+| V2 | BMP180 | Pressure in hPa |
+| V4 | Water Sensor | Water detection status |
 
-## 📷 Prototype
-
-![Manhole Monitoring System Prototype](images/prototype.png)
-
-## 🔌 Circuit Diagram
-
-![Manhole Monitoring System Circuit Diagram](images/circuit.png)
-
-## 🔐 Security
-
-Sensitive credentials such as Wi-Fi passwords and Blynk authentication tokens are not included in this repository.
-
-Replace the following placeholders in your local Arduino code:
+### Water Detection
 
 ```text
-YOUR_BLYNK_TEMPLATE_ID
-YOUR_BLYNK_AUTH_TOKEN
-YOUR_WIFI_NAME
-YOUR_WIFI_PASSWORD
+V4 = 1 → Water Detected
+V4 = 0 → No Water
