@@ -35,7 +35,7 @@ The ESP8266 acts as the main controller and communicates with the sensors while 
 |---|---|
 | ESP8266 NodeMCU | Main microcontroller and Wi-Fi communication |
 | Gas Sensor | Detects gas concentration |
-| Water Sensor | Detects water presence |
+| Water Detection Sensor | Detects water presence |
 | BMP180 Pressure Sensor | Measures atmospheric pressure |
 | Breadboard | Circuit prototyping |
 | Jumper Wires | Electrical connections |
